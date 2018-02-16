@@ -1,5 +1,6 @@
 package com.danilkobeliatskyi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactActor {
@@ -27,9 +28,15 @@ public class ContactActor {
     }
 
     public void deleteContact(String name){
+
+        List<Contact> newContacts = new ArrayList<>();
+
         for (Contact contact : data)
-            if (contact.getName().equals(name))
-                data.remove(contact);
+            if (!contact.getName().equals(name))
+                newContacts.add(contact);
+        data.clear();
+        data.addAll(newContacts);
+
         fileManager.updateContacts(data);
     }
 
