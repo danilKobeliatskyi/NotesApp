@@ -47,8 +47,14 @@ public class FileManager {
 
     public void updateContacts(List<Contact> contacts){
         clearAll();
-        for (Contact contact : contacts){
-            addContact(contact);
+        try {
+            FileWriter writer = new FileWriter(filename, true);
+            for (Contact contact : contacts){
+                writer.write(contactToString(contact));
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println(e);
         }
     }
 
