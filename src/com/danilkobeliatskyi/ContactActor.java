@@ -30,7 +30,7 @@ public class ContactActor {
         for (Contact contact : data)
             if (contact.getName().equals(name))
                 data.remove(contact);
-        fileManager.deleteContact(name);
+        fileManager.updateContacts(data);
     }
 
     public void findContact(String name){

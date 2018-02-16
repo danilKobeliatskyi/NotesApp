@@ -12,9 +12,9 @@ public class FileManager {
     public FileManager(String filename) {
         this.filename = filename;
     }
-        List<Contact> contacts = new ArrayList<>();
 
     public List<Contact> getAllData(){
+        List<Contact> contacts = new ArrayList<>();
         File file = new File(filename);
         String line;
         String[] subStr;
@@ -45,10 +45,10 @@ public class FileManager {
         }
     }
 
-    public void deleteContact(String name){
+    public void updateContacts(List<Contact> contacts){
+        clearAll();
         for (Contact contact : contacts){
-            if (contact.getName().equals(name))
-                contacts.remove(contact);
+            addContact(contact);
         }
     }
 
