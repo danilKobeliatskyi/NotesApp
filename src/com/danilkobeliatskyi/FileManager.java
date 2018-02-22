@@ -20,9 +20,8 @@ public class FileManager {
         String[] subStr;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
-            String delimeter = ",";
             while ((line = br.readLine()) != null) {
-                subStr = line.split(delimeter);
+                subStr = line.split(",");
                 Contact contact = new Contact(subStr[0], subStr[1], subStr[2]);
                 contacts.add(contact);
             }
